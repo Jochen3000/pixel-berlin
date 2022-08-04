@@ -112,3 +112,85 @@
   figcaption a {
     font-size: 14px;
   }
+
+  /* github animation cube */
+  * {
+    box-sizing: border-box;
+  }
+
+  .environment {
+    perspective: 600px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cube>* {
+    opacity: 0.9;
+  }
+
+  .cube {
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    transform-origin: 75px 75px;
+    position: relative;
+    top: -75px;
+    left: -75px;
+    transform: rotateY(60deg) rotateX(50deg);
+  }
+
+  .cube.animated {
+    animation: goround 8s linear infinite;
+  }
+
+  @keyframes goround {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg) translateZ(75px);
+    }
+
+    100% {
+      transform: rotateY(360deg) rotateX(360deg) translateZ(75px);
+    }
+  }
+
+  .cube>* {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+  }
+
+  .front {
+    background: #e74c3c;
+  }
+
+  .left {
+    background: #f1c40f;
+    transform: rotateY(90deg);
+    transform-origin: 0 0;
+  }
+
+  .bottom {
+    background: #3498db;
+    transform: rotateX(90deg);
+    transform-origin: 0 150px;
+  }
+
+  .top {
+    background: #3498db;
+    transform: rotateX(270deg);
+    transform-origin: 150px 0;
+  }
+
+  .right {
+    background: #f1c40f;
+    transform: rotateY(270deg);
+    transform-origin: 150px 0;
+  }
+
+  .back {
+    background: #e74c3c;
+    transform: translateZ(-150px);
+  }
