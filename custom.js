@@ -10,7 +10,6 @@ myLinkList.forEach(item => {
     else if (item.href.includes('trk.elementor')) {
         item.addEventListener("click", () => {
             gtag('event', 'elementor_click');
-            console.log('elementor')
         });
     }
 });
