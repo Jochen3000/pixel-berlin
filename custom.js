@@ -7,6 +7,9 @@ myLinkList.forEach(item => {
             gtag('event', 'webflow_click');
         });
     }
+    else if (item.href.includes('trk.elementor')) {
+        item.addEventListener("click", () => {
+            gtag('event', 'elementor_click');
+        });
+    }
 });
-
-console.log('hallo');
