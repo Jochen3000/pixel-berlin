@@ -1,0 +1,6 @@
+  /* font smoothing */
+  body {
+      -webkit-font-smoothing: antialiased;
+      -moz-font-smoothing: antialiased;
+      -o-font-smoothing: antialiased;
+  }
