@@ -15,9 +15,25 @@ myLinkList.forEach(item => {
 });
 
 // projects section
-const favouriteProject1 = document.querySelector('.favouriteproject1');
-const favouriteProject2 = document.querySelector('.favouriteproject2');
+// const favouriteProjects = document.querySelectorAll('.favouriteproject');
 
-favouriteProject1.addEventListener('click', () => {
-    console.log('hallo inner');
+// favouriteProjects.forEach((item) => {
+//     item.addEventListener('click', function handleClick(event) {
+//         console.log('box clicked', event);
+
+//         box.setAttribute('style', 'background-color: yellow;');
+//     });
+// });
+
+const favouriteProjects = document.querySelectorAll('.favouriteproject');
+const screenContainer = document.querySelector('.screencontainer');
+
+favouriteProjects.forEach(item => {
+    item.addEventListener('click', (event) => {
+        screenContainer.classList.add('loading-wrapper');
+        console.log(screenContainer);
+    });
 });
+
+
+
