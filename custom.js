@@ -26,12 +26,18 @@ myLinkList.forEach(item => {
 // });
 
 const favouriteProjects = document.querySelectorAll('.favouriteproject');
-const screenContainer = document.querySelector('.screencontainer');
+const screenContainer = document.querySelector('.loading-wrapper');
+const screenContent = document.querySelector('.screenstartpage');
 
 favouriteProjects.forEach(item => {
     item.addEventListener('click', (event) => {
-        screenContainer.classList.add('loading-wrapper');
-        console.log(screenContainer);
+        screenContainer.classList.add('loading');
+        setTimeout(function () {
+            screenContent.insertAdjacentHTML('beforebegin', '<img src=./img/podojo-screen.png>');
+            screenContainer.classList.remove('loading');
+        }, 1000);
+
+
     });
 });
 
