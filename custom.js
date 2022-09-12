@@ -13,3 +13,11 @@ myLinkList.forEach(item => {
         });
     }
 });
+
+// projects section
+const favouriteProject1 = document.querySelector('.favouriteproject1');
+const favouriteProject2 = document.querySelector('.favouriteproject2');
+
+favouriteProject1.addEventListener('click', () => {
+    console.log('hallo inner');
+});
