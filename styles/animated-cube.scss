@@ -1,0 +1,86 @@
+/* Variables */
+$orange: #ff961b;
+$yellow: #ffcd1d;
+$blue: #00b8ec;
+
+/* github animation cube */
+* {
+  box-sizing: border-box;
+}
+
+.environment {
+  perspective: 600px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube > * {
+  opacity: 0.9;
+}
+
+.cube {
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px;
+  position: relative;
+  top: -100px;
+  left: -100px;
+  transform: rotateY(60deg) rotateX(50deg);
+}
+
+.cube.animated {
+  animation: goround 8s linear infinite;
+}
+
+@keyframes goround {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg) translateZ(100px);
+  }
+
+  100% {
+    transform: rotateY(360deg) rotateX(360deg) translateZ(100px);
+  }
+}
+
+.cube > * {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+
+.front {
+  background: $orange;
+}
+
+.left {
+  background: $yellow;
+  transform: rotateY(90deg);
+  transform-origin: 0 0;
+}
+
+.bottom {
+  background: $blue;
+  transform: rotateX(90deg);
+  transform-origin: 0 200px;
+}
+
+.top {
+  background: $blue;
+  transform: rotateX(270deg);
+  transform-origin: 200px 0;
+}
+
+.right {
+  background: $yellow;
+  transform: rotateY(270deg);
+  transform-origin: 200px 0;
+}
+
+.back {
+  background: $orange;
+  transform: translateZ(-200px);
+}
