@@ -26,17 +26,17 @@ myLinkList.forEach(item => {
 // });
 
 const favouriteProjects = document.querySelectorAll('.favouriteproject');
-const screenContainer = document.querySelector('.loading-wrapper');
+const loadingWrapper = document.querySelector('.loading-wrapper');
 const startScreen = document.querySelector('.screenstartpage');
 const screenContent = document.querySelector('.project-container');
 
 favouriteProjects.forEach(item => {
     item.addEventListener('click', (event) => {
-        screenContainer.classList.add('loading');
+        loadingWrapper.classList.add('loading');
         setTimeout(function () {
-            screenContent.insertAdjacentHTML('beforebegin', '<img src=./img/podojo-screen.png>');
+            loadingWrapper.insertAdjacentHTML('beforebegin', '<img src=./img/podojo-screen.png>');
             startScreen.classList.add('hide');
-            screenContainer.classList.remove('loading');
+            // loadingWrapper.classList.remove('loading');
         }, 1000);
 
 
