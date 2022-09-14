@@ -29,6 +29,7 @@ const favouriteProjects = document.querySelectorAll('.favouriteproject');
 const loadingWrapper = document.querySelector('.loading-wrapper');
 const startScreen = document.querySelector('.screenstartpage');
 const screenContent = document.querySelector('.project-container');
+const loadingBar = document.querySelector('.loading-bar');
 
 favouriteProjects.forEach(item => {
     item.addEventListener('click', (event) => {
@@ -36,8 +37,11 @@ favouriteProjects.forEach(item => {
         setTimeout(function () {
             loadingWrapper.insertAdjacentHTML('beforebegin', '<img src=./img/podojo-screen.png>');
             startScreen.classList.add('hide');
-            // loadingWrapper.classList.remove('loading');
-        }, 1000);
+            loadingBar.classList.add('loading-progress');
+        }, 250);
+        setTimeout(function () {
+            loadingWrapper.classList.remove('loading');
+        }, 1250);
 
 
     });
