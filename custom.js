@@ -41,6 +41,7 @@ favouriteProjects.forEach(item => {
         }, 250);
         setTimeout(function () {
             loadingWrapper.classList.remove('loading');
+            loadingWrapper.classList.remove('loading-progress');
         }, 1250);
 
 
