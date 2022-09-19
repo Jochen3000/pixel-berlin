@@ -15,27 +15,24 @@ myLinkList.forEach(item => {
 });
 
 // projects section
-// const favouriteProjects = document.querySelectorAll('.favouriteproject');
-
-// favouriteProjects.forEach((item) => {
-//     item.addEventListener('click', function handleClick(event) {
-//         console.log('box clicked', event);
-
-//         box.setAttribute('style', 'background-color: yellow;');
-//     });
-// });
 
 const favouriteProjects = document.querySelectorAll('.favouriteproject');
 const loadingWrapper = document.querySelector('.loading-wrapper');
 const startScreen = document.querySelector('.screenstartpage');
 const screenContent = document.querySelector('.project-container');
 const loadingBar = document.querySelector('.loading-bar');
+const browserBar = document.querySelector('.browser-bar');
 
-favouriteProjects.forEach(item => {
-    item.addEventListener('click', (event) => {
+browserBar.addEventListener("click", () => {
+    startScreen.classList.remove('hide');
+});
+
+for (let i = 0; i < favouriteProjects.length; i++) {
+
+    favouriteProjects[i].addEventListener('click', (event) => {
         loadingWrapper.classList.add('loading');
         setTimeout(function () {
-            loadingWrapper.insertAdjacentHTML('beforebegin', '<img src=./img/podojo-screen.png>');
+            screenContent.insertAdjacentHTML('afterbegin', `<img src=./img/project-${i}.png>`);
             startScreen.classList.add('hide');
             loadingBar.classList.add('loading-progress');
         }, 250);
@@ -43,10 +40,8 @@ favouriteProjects.forEach(item => {
             loadingWrapper.classList.remove('loading');
             loadingWrapper.classList.remove('loading-progress');
         }, 1250);
-
-
     });
-});
+};
 
 
 
