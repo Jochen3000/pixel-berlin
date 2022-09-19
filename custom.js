@@ -22,9 +22,17 @@ const startScreen = document.querySelector('.screenstartpage');
 const screenContent = document.querySelector('.project-container');
 const loadingBar = document.querySelector('.loading-bar');
 const browserBar = document.querySelector('.browser-bar');
+const projectDescriptionIntro = document.querySelector('.project-intro');
+
+const projectDescription = [document.querySelector('.project-1'), document.querySelector('.project-2')];
+projectDescription[0].classList.add('hide');
+projectDescription[1].classList.add('hide');
 
 browserBar.addEventListener("click", () => {
     startScreen.classList.remove('hide');
+    projectDescriptionIntro.classList.remove('hide');
+    projectDescription[0].classList.add('hide');
+    projectDescription[1].classList.add('hide');
     screenContent.innerHTML = '';
 });
 
@@ -34,6 +42,8 @@ for (let i = 0; i < favouriteProjects.length; i++) {
         setTimeout(function () {
             screenContent.insertAdjacentHTML('afterbegin', `<img src=./img/project-${i}.png>`);
             startScreen.classList.add('hide');
+            projectDescriptionIntro.classList.add('hide');
+            projectDescription[i].classList.remove('hide');
             loadingBar.classList.add('loading-progress');
         }, 250);
         setTimeout(function () {
