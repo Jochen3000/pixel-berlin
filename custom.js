@@ -25,10 +25,10 @@ const browserBar = document.querySelector('.browser-bar');
 
 browserBar.addEventListener("click", () => {
     startScreen.classList.remove('hide');
+    screenContent.innerHTML = '';
 });
 
 for (let i = 0; i < favouriteProjects.length; i++) {
-
     favouriteProjects[i].addEventListener('click', (event) => {
         loadingWrapper.classList.add('loading');
         setTimeout(function () {
