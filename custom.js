@@ -48,12 +48,12 @@ for (let i = 0; i < favouriteProjects.length; i++) {
             screenContent.insertAdjacentHTML('afterbegin', `<img src=https://jochen3000.github.io/pixel-berlin/img/project-${i}.png>`);
             startScreen.classList.add('hide');
             projectDescriptionIntro.classList.add('hide');
-            projectDescription[i].classList.remove('hide');
             loadingBar.classList.add('loading-progress');
         }, 250);
         setTimeout(function () {
             loadingWrapper.classList.remove('loading');
             loadingBar.classList.remove('loading-progress');
+            projectDescription[i].classList.remove('hide');
         }, 1250);
     });
 };
