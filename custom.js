@@ -45,7 +45,7 @@ for (let i = 0; i < favouriteProjects.length; i++) {
     favouriteProjects[i].addEventListener('click', (event) => {
         loadingWrapper.classList.add('loading');
         setTimeout(function () {
-            screenContent.insertAdjacentHTML('afterbegin', `<img src=./img/project-${i}.png>`);
+            screenContent.insertAdjacentHTML('afterbegin', `<img src=https://jochen3000.github.io/pixel-berlin/img/project-${i}.png>`);
             startScreen.classList.add('hide');
             projectDescriptionIntro.classList.add('hide');
             projectDescription[i].classList.remove('hide');
