@@ -24,15 +24,20 @@ const loadingBar = document.querySelector('.loading-bar');
 const browserBar = document.querySelector('.browser-bar');
 const projectDescriptionIntro = document.querySelector('.project-intro');
 
-const projectDescription = [document.querySelector('.project-1'), document.querySelector('.project-2')];
+const projectDescription = [document.querySelector('.project-1'),
+document.querySelector('.project-2'),
+document.querySelector('.project-3')
+];
 projectDescription[0].classList.add('hide');
 projectDescription[1].classList.add('hide');
+projectDescription[2].classList.add('hide');
 
 browserBar.addEventListener("click", () => {
     startScreen.classList.remove('hide');
     projectDescriptionIntro.classList.remove('hide');
     projectDescription[0].classList.add('hide');
     projectDescription[1].classList.add('hide');
+    projectDescription[2].classList.add('hide');
     screenContent.innerHTML = '';
 });
 
@@ -48,7 +53,7 @@ for (let i = 0; i < favouriteProjects.length; i++) {
         }, 250);
         setTimeout(function () {
             loadingWrapper.classList.remove('loading');
-            loadingWrapper.classList.remove('loading-progress');
+            loadingBar.classList.remove('loading-progress');
         }, 1250);
     });
 };
