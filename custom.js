@@ -32,6 +32,14 @@ projectDescription[0].classList.add('hide');
 projectDescription[1].classList.add('hide');
 projectDescription[2].classList.add('hide');
 
+browserBar.addEventListener("mouseover", () => {
+    browserBar.style.opacity = "1";
+});
+
+browserBar.addEventListener("mouseout", () => {
+    browserBar.style.opacity = "0.8";
+});
+
 browserBar.addEventListener("click", () => {
     startScreen.classList.remove('hide');
     projectDescriptionIntro.classList.remove('hide');
@@ -49,11 +57,11 @@ for (let i = 0; i < favouriteProjects.length; i++) {
             startScreen.classList.add('hide');
             projectDescriptionIntro.classList.add('hide');
             loadingBar.classList.add('loading-progress');
+            projectDescription[i].classList.remove('hide');
         }, 250);
         setTimeout(function () {
             loadingWrapper.classList.remove('loading');
             loadingBar.classList.remove('loading-progress');
-            projectDescription[i].classList.remove('hide');
         }, 1250);
     });
 };

@@ -230,7 +230,9 @@ figcaption a {
 }
 
 .hide {
-  display: none;
+  overflow: hidden;
+  height: 0px;
+  margin-top: 0px;
 }
 
 /* Loading bar */
@@ -286,4 +288,17 @@ figcaption a {
   100% {
     transform: scale(1, 1);
   }
+}
+/* Fade in description */
+.projectdescription > .hide {
+  opacity: 0;
+}
+
+.projectdescription > :not(.hide) {
+  opacity: 1;
+  transition: 2s;
+}
+
+.browser-bar {
+  opacity: 0.8;
 }
