@@ -66,5 +66,33 @@ for (let i = 0; i < favouriteProjects.length; i++) {
     });
 };
 
+/**
+ * whatsapp simulation
+ */
+
+/* display time in top bar */
+let d = new Date();
+document.querySelector('.time-display').innerHTML = `${d.getHours()}:${d.getMinutes()}`;
+
+/* select elements and hide */
+const isTyping = document.querySelector('.contact-tap');
+const messagesComputer = document.querySelectorAll('.message-computer');
+const messagesUser = document.querySelectorAll('.message-user');
+const textEntryName = document.querySelector('.text-entry-name');
+const textEntryMessage = document.querySelector('.text-entry-message');
+const textEntryContact = document.querySelector('.text-entry-contact');
+
+isTyping.classList.add('hide');
+messagesUser[0].classList.add('hide');
+messagesUser[1].classList.add('hide');
+messagesUser[2].classList.add('hide');
+messagesComputer[1].classList.add('hide');
+messagesComputer[2].classList.add('hide');
+messagesComputer[3].classList.add('hide');
+messagesComputer[4].classList.add('hide');
+textEntryName.classList.add('hide');
+textEntryMessage.classList.add('hide');
+textEntryContact.classList.add('hide');
+
 
 
