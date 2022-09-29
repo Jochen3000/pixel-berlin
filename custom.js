@@ -93,5 +93,11 @@ messagesComputer[4].classList.add('hide');
 textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 
+// On focus textEntryName 
+// show isTyping
+// wait 1s
+// hide isTyping
+// show messagesComputer[0]
+
 
 

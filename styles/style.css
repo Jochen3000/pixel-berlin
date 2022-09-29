@@ -235,6 +235,10 @@ figcaption a {
   margin-top: 0px;
 }
 
+.whatsapp-bottom .hide {
+  display: none;
+}
+
 /* Loading bar */
 .loading-bar {
   background-color: #00b8ec;
