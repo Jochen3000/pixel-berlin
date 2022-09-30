@@ -72,7 +72,10 @@ for (let i = 0; i < favouriteProjects.length; i++) {
 
 /* display time in top bar */
 let d = new Date();
-document.querySelector('.time-display').innerHTML = `${d.getHours()}:${d.getMinutes()}`;
+let hours = d.getHours();
+let minutes = d.getMinutes()
+let minutesString = minutes <= 9 ? (`0${minutes}`) : (`${minutes}`);
+document.querySelector('.time-display').innerHTML = `${hours}:${minutesString}`;
 
 /* select elements and hide */
 const isTyping = document.querySelector('.contact-tap');
