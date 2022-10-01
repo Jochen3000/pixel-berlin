@@ -88,6 +88,7 @@ const messagesUser = document.querySelectorAll('.message-user');
 const textEntryName = document.querySelector('.text-entry-name');
 const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
+const textEntryButton = document.querySelector('.submit-arrow-button');
 
 isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
@@ -101,32 +102,57 @@ textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 
 // function to display computer messages
-const displayComputerMessage = () => {
+const displayComputerMessage = (id) => {
     isTyping.classList.remove('hide');
     setTimeout(function () {
         isTyping.classList.add('hide');
-        messagesComputer[1].classList.remove('hide');
-        console.log('job done');
-    }, 1500);
+        messagesComputer[id].classList.remove('hide');
+    }, 1000);
 }
 
 // Show second message on focus textEntryName 
 textEntryName.addEventListener("focus", () => {
-    displayComputerMessage();
+    displayComputerMessage(1);
 });
 
-// function to display computer messages
-const displayUserMessage = (field) => {
+// Press button. Check which fields are filled (starting with the last)
+textEntryButton.addEventListener("click", () => {
+    if (textEntryContact.value) {
+        messagesUser[2].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryContact.value;
+        messagesUser[2].classList.remove('hide');
+        textEntryButton.classList.add('hide');
+        displayComputerMessage(4);
+    }
+    else if (textEntryMessage.value) {
+        console.log(textEntryMessage.value);
+        messagesUser[1].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryMessage.value;
+        messagesUser[1].classList.remove('hide');
+        textEntryContact.classList.remove('hide');
+        textEntryMessage.classList.add('hide');
+        displayComputerMessage(3);
+    }
+    else if (textEntryName.value) {
+        messagesUser[0].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryName.value;
+        messagesUser[0].classList.remove('hide');
+        textEntryMessage.classList.remove('hide');
+        textEntryName.classList.add('hide');
+        displayComputerMessage(2);
+    }
+});
 
-}
+// make it work with return
+
+// make scrolling work
+    // get height .chat-container-inner
+    // scroll up chat-container-inner-400px
+        // element.scrollTop += 10;
+        // https://www.w3schools.com/jsref/prop_element_scrolltop.asp
+
+// make form submit work
+
+// deactivate entry box
+// deactivate return
 
 
-
-// limit size of text to x
-// Press button
-// check if field (name) is filled
-// set (value) of messagesUser[0]
-displayUserMessage(textEntryName)
-// unhide messagesUser[0]
 
 
