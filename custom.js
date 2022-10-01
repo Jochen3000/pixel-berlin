@@ -81,9 +81,9 @@ document.querySelector('.time-display').innerHTML = `${hours}:${minutesString}`;
 const isTyping = document.querySelector('.contact-tap');
 const messagesComputer = document.querySelectorAll('.message-computer');
 const messagesUser = document.querySelectorAll('.message-user');
-const textEntryName = document.querySelector('.entry-name');
-const textEntryMessage = document.querySelector('.entry-message');
-const textEntryContact = document.querySelector('.entry-contact');
+const textEntryName = document.querySelector('.entry-name input');
+const textEntryMessage = document.querySelector('.entry-message input');
+const textEntryContact = document.querySelector('.entry-contact input');
 
 isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
@@ -97,10 +97,12 @@ textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 
 // On focus textEntryName 
+textEntryName.addEventListener("focus", () => {
+    console.log('hallo');
+});
 // show isTyping
 // wait 1s
 // hide isTyping
 // show messagesComputer[0]
-
 
 
