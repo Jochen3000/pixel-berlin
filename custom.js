@@ -71,19 +71,23 @@ for (let i = 0; i < favouriteProjects.length; i++) {
  */
 
 /* display time in top bar */
-let d = new Date();
-let hours = d.getHours();
-let minutes = d.getMinutes()
-let minutesString = minutes <= 9 ? (`0${minutes}`) : (`${minutes}`);
-document.querySelector('.time-display').innerHTML = `${hours}:${minutesString}`;
+setInterval(currentTime, 30000);
+
+function currentTime() {
+    let d = new Date();
+    let hours = d.getHours();
+    let minutes = d.getMinutes()
+    let minutesString = minutes <= 9 ? (`0${minutes}`) : (`${minutes}`);
+    document.querySelector('.time-display').innerHTML = `${hours}:${minutesString}`;
+}
 
 /* select elements and hide */
 const isTyping = document.querySelector('.contact-tap');
 const messagesComputer = document.querySelectorAll('.message-computer');
 const messagesUser = document.querySelectorAll('.message-user');
-const textEntryName = document.querySelector('.entry-name input');
-const textEntryMessage = document.querySelector('.entry-message input');
-const textEntryContact = document.querySelector('.entry-contact input');
+const textEntryName = document.querySelector('.text-entry-name');
+const textEntryMessage = document.querySelector('.text-entry-message');
+const textEntryContact = document.querySelector('.text-entry-contact');
 
 isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
@@ -96,13 +100,33 @@ messagesComputer[4].classList.add('hide');
 textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 
-// On focus textEntryName 
+// function to display computer messages
+const displayComputerMessage = () => {
+    isTyping.classList.remove('hide');
+    setTimeout(function () {
+        isTyping.classList.add('hide');
+        messagesComputer[1].classList.remove('hide');
+        console.log('job done');
+    }, 1500);
+}
+
+// Show second message on focus textEntryName 
 textEntryName.addEventListener("focus", () => {
-    console.log('hallo');
+    displayComputerMessage();
 });
-// show isTyping
-// wait 1s
-// hide isTyping
-// show messagesComputer[0]
+
+// function to display computer messages
+const displayUserMessage = (field) => {
+
+}
+
+
+
+// limit size of text to x
+// Press button
+// check if field (name) is filled
+// set (value) of messagesUser[0]
+displayUserMessage(textEntryName)
+// unhide messagesUser[0]
 
 
