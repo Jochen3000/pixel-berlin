@@ -92,6 +92,8 @@ const textEntryButton = document.querySelector('.submit-arrow-button');
 const formSubmitButton = document.querySelector('.submit-button');
 const formSubmitSuccess = document.querySelector('.submit-success-message');
 const whatsappForm = document.querySelector(".whatsapp-form");
+const chatContainer = document.querySelector('.chat-container');
+const chatContainerInner = document.querySelector('.chat-container-inner');
 
 isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
@@ -113,6 +115,11 @@ const displayComputerMessage = (id) => {
         isTyping.classList.add('hide');
         messagesComputer[id].classList.remove('hide');
     }, 1000);
+    // scroll up window if needed
+    if (chatContainerInner.clientHeight > 400) {
+        console.log(chatContainerInner.clientHeight);
+        chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
+    }
 }
 
 // Show second message on focus textEntryName 
@@ -141,6 +148,11 @@ const displayUserMessage = () => {
         textEntryButton.classList.add('hide');
         displayComputerMessage(4);
         formSubmitButton.click();
+        // scroll up window if needed
+        if (chatContainerInner.clientHeight > 400) {
+            console.log(chatContainerInner.clientHeight);
+            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
+        }
     }
     else if (textEntryMessage.value) {
         messagesUser[1].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryMessage.value;
@@ -148,7 +160,11 @@ const displayUserMessage = () => {
         textEntryContact.classList.remove('hide');
         textEntryMessage.classList.add('hide');
         displayComputerMessage(3);
-        // formSubmitButton.classList.remove('hide');
+        // scroll up window if needed
+        if (chatContainerInner.clientHeight > 400) {
+            console.log(chatContainerInner.clientHeight);
+            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
+        }
     }
     else if (textEntryName.value) {
         messagesUser[0].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryName.value;
@@ -160,17 +176,7 @@ const displayUserMessage = () => {
 }
 
 
-// make form submit work
 
-// make scrolling work
-    // get height .chat-container-inner
-    // scroll up chat-container-inner-400px
-        // element.scrollTop += 10;
-        // https://www.w3schools.com/jsref/prop_element_scrolltop.asp
-
-
-// deactivate entry box
-// deactivate return
 
 
 
