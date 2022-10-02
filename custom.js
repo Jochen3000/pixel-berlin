@@ -115,8 +115,21 @@ textEntryName.addEventListener("focus", () => {
     displayComputerMessage(1);
 });
 
-// Press button. Check which fields are filled (starting with the last)
+// Press submit button or enter key for user messages
 textEntryButton.addEventListener("click", () => {
+    displayUserMessage();
+});
+
+const formElement = document.querySelector(".whatsapp-form");
+formElement.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        displayUserMessage();
+    }
+});
+
+// Check which fields are filled and display
+const displayUserMessage = () => {
     if (textEntryContact.value) {
         messagesUser[2].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryContact.value;
         messagesUser[2].classList.remove('hide');
@@ -138,9 +151,10 @@ textEntryButton.addEventListener("click", () => {
         textEntryName.classList.add('hide');
         displayComputerMessage(2);
     }
-});
+}
 
-// make it work with return
+
+// make form submit work
 
 // make scrolling work
     // get height .chat-container-inner
@@ -148,7 +162,6 @@ textEntryButton.addEventListener("click", () => {
         // element.scrollTop += 10;
         // https://www.w3schools.com/jsref/prop_element_scrolltop.asp
 
-// make form submit work
 
 // deactivate entry box
 // deactivate return
