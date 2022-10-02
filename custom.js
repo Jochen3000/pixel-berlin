@@ -99,6 +99,7 @@ isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
 messagesUser[1].classList.add('hide');
 messagesUser[2].classList.add('hide');
+messagesComputer[0].classList.add('hide');
 messagesComputer[1].classList.add('hide');
 messagesComputer[2].classList.add('hide');
 messagesComputer[3].classList.add('hide');
@@ -114,13 +115,24 @@ const displayComputerMessage = (id) => {
     setTimeout(function () {
         isTyping.classList.add('hide');
         messagesComputer[id].classList.remove('hide');
+        // scroll up window if needed
+        if (chatContainerInner.clientHeight > 400) {
+            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
+        }
     }, 1000);
-    // scroll up window if needed
-    if (chatContainerInner.clientHeight > 400) {
-        console.log(chatContainerInner.clientHeight);
-        chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
-    }
 }
+
+// Show first message on scroll visible
+const appear = document.querySelector('.appear');
+const cb = function (entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('inview');
+        }
+    });
+}
+const io = new IntersectionObserver(cb);
+io.observe(appear);
 
 // Show second message on focus textEntryName 
 textEntryName.addEventListener("focus", () => {
@@ -150,7 +162,6 @@ const displayUserMessage = () => {
         formSubmitButton.click();
         // scroll up window if needed
         if (chatContainerInner.clientHeight > 400) {
-            console.log(chatContainerInner.clientHeight);
             chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
         }
     }
@@ -162,7 +173,6 @@ const displayUserMessage = () => {
         displayComputerMessage(3);
         // scroll up window if needed
         if (chatContainerInner.clientHeight > 400) {
-            console.log(chatContainerInner.clientHeight);
             chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
         }
     }
