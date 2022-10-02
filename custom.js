@@ -90,7 +90,7 @@ const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
 const textEntryButton = document.querySelector('.submit-arrow-button');
 const formSubmitButton = document.querySelector('.submit-button');
-const formSubmitSuccess = document.querySelector('.success-message');
+const formSubmitSuccess = document.querySelector('.submit-success-message');
 const whatsappForm = document.querySelector(".whatsapp-form");
 
 isTyping.classList.add('hide');
