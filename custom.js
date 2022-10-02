@@ -89,6 +89,8 @@ const textEntryName = document.querySelector('.text-entry-name');
 const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
 const textEntryButton = document.querySelector('.submit-arrow-button');
+const formSubmitButton = document.querySelector('.submit-button');
+const whatsappForm = document.querySelector(".whatsapp-form");
 
 isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
@@ -100,6 +102,7 @@ messagesComputer[3].classList.add('hide');
 messagesComputer[4].classList.add('hide');
 textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
+formSubmitButton.classList.add('hide');
 
 // function to display computer messages
 const displayComputerMessage = (id) => {
@@ -115,16 +118,19 @@ textEntryName.addEventListener("focus", () => {
     displayComputerMessage(1);
 });
 
-// Press submit button or enter key for user messages
+// Press submit button to send user messages
 textEntryButton.addEventListener("click", () => {
     displayUserMessage();
 });
 
-const formElement = document.querySelector(".whatsapp-form");
-formElement.addEventListener("keypress", (e) => {
+// Press enter key to send user messages
+whatsappForm.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-        e.preventDefault();
         displayUserMessage();
+        if (!textEntryContact.value) {
+            e.preventDefault()
+            console.log('mein wert', textEntryContact.value);
+        }
     }
 });
 
@@ -143,6 +149,7 @@ const displayUserMessage = () => {
         textEntryContact.classList.remove('hide');
         textEntryMessage.classList.add('hide');
         displayComputerMessage(3);
+        // formSubmitButton.classList.remove('hide');
     }
     else if (textEntryName.value) {
         messagesUser[0].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryName.value;
