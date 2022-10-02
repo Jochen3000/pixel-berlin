@@ -99,7 +99,6 @@ isTyping.classList.add('hide');
 messagesUser[0].classList.add('hide');
 messagesUser[1].classList.add('hide');
 messagesUser[2].classList.add('hide');
-messagesComputer[0].classList.add('hide');
 messagesComputer[1].classList.add('hide');
 messagesComputer[2].classList.add('hide');
 messagesComputer[3].classList.add('hide');
@@ -123,11 +122,12 @@ const displayComputerMessage = (id) => {
 }
 
 // Show first message on scroll visible
-const appear = document.querySelector('.appear');
+messagesComputer[0].classList.add('hide');
+const appear = messagesComputer[0];
 const cb = function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('inview');
+            displayComputerMessage(0);
         }
     });
 }
