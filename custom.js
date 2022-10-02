@@ -90,6 +90,7 @@ const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
 const textEntryButton = document.querySelector('.submit-arrow-button');
 const formSubmitButton = document.querySelector('.submit-button');
+const formSubmitSuccess = document.querySelector('.success-message');
 const whatsappForm = document.querySelector(".whatsapp-form");
 
 isTyping.classList.add('hide');
@@ -103,6 +104,7 @@ messagesComputer[4].classList.add('hide');
 textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 formSubmitButton.classList.add('hide');
+formSubmitSuccess.classList.add('hide');
 
 // function to display computer messages
 const displayComputerMessage = (id) => {
@@ -127,10 +129,7 @@ textEntryButton.addEventListener("click", () => {
 whatsappForm.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         displayUserMessage();
-        if (!textEntryContact.value) {
-            e.preventDefault()
-            console.log('mein wert', textEntryContact.value);
-        }
+        e.preventDefault();
     }
 });
 
@@ -141,9 +140,9 @@ const displayUserMessage = () => {
         messagesUser[2].classList.remove('hide');
         textEntryButton.classList.add('hide');
         displayComputerMessage(4);
+        formSubmitButton.click();
     }
     else if (textEntryMessage.value) {
-        console.log(textEntryMessage.value);
         messagesUser[1].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryMessage.value;
         messagesUser[1].classList.remove('hide');
         textEntryContact.classList.remove('hide');
