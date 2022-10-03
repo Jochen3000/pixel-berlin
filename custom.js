@@ -169,6 +169,7 @@ const displayUserMessage = () => {
         messagesUser[1].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryMessage.value;
         messagesUser[1].classList.remove('hide');
         textEntryContact.classList.remove('hide');
+        textEntryContact.focus();
         textEntryMessage.classList.add('hide');
         displayComputerMessage(3);
         // scroll up window if needed
@@ -180,6 +181,7 @@ const displayUserMessage = () => {
         messagesUser[0].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryName.value;
         messagesUser[0].classList.remove('hide');
         textEntryMessage.classList.remove('hide');
+        textEntryMessage.focus();
         textEntryName.classList.add('hide');
         displayComputerMessage(2);
     }
