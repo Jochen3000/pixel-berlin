@@ -14,7 +14,9 @@ myLinkList.forEach(item => {
     }
 });
 
-// projects section
+/**
+ * projects section
+ */
 
 const favouriteProjects = document.querySelectorAll('.favouriteproject');
 const loadingWrapper = document.querySelector('.loading-wrapper');
@@ -152,6 +154,13 @@ whatsappForm.addEventListener("keypress", (e) => {
     }
 });
 
+// scroll up window if needed
+const scrollUp = () => {
+    if (chatContainerInner.clientHeight > chatContainer.clientHeight) {
+        chatContainer.scrollTop = chatContainerInner.clientHeight - chatContainer.clientHeight;
+    }
+}
+
 // Check which fields are filled and display
 const displayUserMessage = () => {
     if (textEntryContact.value) {
@@ -160,10 +169,7 @@ const displayUserMessage = () => {
         textEntryButton.classList.add('hide');
         displayComputerMessage(4);
         formSubmitButton.click();
-        // scroll up window if needed
-        if (chatContainerInner.clientHeight > 400) {
-            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
-        }
+        scrollUp();
     }
     else if (textEntryMessage.value) {
         messagesUser[1].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryMessage.value;
@@ -172,10 +178,7 @@ const displayUserMessage = () => {
         textEntryContact.focus();
         textEntryMessage.classList.add('hide');
         displayComputerMessage(3);
-        // scroll up window if needed
-        if (chatContainerInner.clientHeight > 400) {
-            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
-        }
+        scrollUp();
     }
     else if (textEntryName.value) {
         messagesUser[0].firstElementChild.firstElementChild.firstElementChild.innerText = textEntryName.value;
@@ -184,6 +187,7 @@ const displayUserMessage = () => {
         textEntryMessage.focus();
         textEntryName.classList.add('hide');
         displayComputerMessage(2);
+        scrollUp();
     }
 }
 
