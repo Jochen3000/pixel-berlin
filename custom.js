@@ -116,10 +116,7 @@ const displayComputerMessage = (id) => {
     setTimeout(function () {
         isTyping.classList.add('hide');
         messagesComputer[id].classList.remove('hide');
-        // scroll up window if needed
-        if (chatContainerInner.clientHeight > 400) {
-            chatContainer.scrollTop = chatContainerInner.clientHeight - 400;
-        }
+        scrollUp();
     }, 1000);
 }
 
