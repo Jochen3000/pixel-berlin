@@ -88,6 +88,7 @@ const isTyping = document.querySelector('.contact-tap');
 const messagesComputer = document.querySelectorAll('.message-computer');
 const messagesUser = document.querySelectorAll('.message-user');
 const textEntryName = document.querySelector('.text-entry-name');
+const messageSend = document.querySelector('.message-send');
 const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
 const textEntryButton = document.querySelector('.submit-arrow-button');
@@ -187,6 +188,29 @@ const displayUserMessage = () => {
         scrollUp();
     }
 }
+
+// netlify form submission
+const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+        .then(() => {
+            messageSend.classList.add('hide');
+            console.log('form submitted');
+        })
+        .catch((error) => alert(error));
+};
+
+document
+    .querySelector("form")
+    .addEventListener("submit", handleSubmit);
 
 
 
