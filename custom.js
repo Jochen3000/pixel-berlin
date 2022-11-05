@@ -202,8 +202,10 @@ const handleSubmit = (event) => {
         body: new URLSearchParams(formData).toString(),
     })
         .then(() => {
-            messageSend.classList.add('hide');
-            console.log('form submitted');
+            setTimeout(function () {
+                messageSend.classList.add('hide');
+                console.log('form submitted');
+            }, 1000);
         })
         .catch((error) => alert(error));
 };
