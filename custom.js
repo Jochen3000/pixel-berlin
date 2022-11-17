@@ -93,7 +93,6 @@ const textEntryMessage = document.querySelector('.text-entry-message');
 const textEntryContact = document.querySelector('.text-entry-contact');
 const textEntryButton = document.querySelector('.submit-arrow-button');
 const formSubmitButton = document.querySelector('.submit-button');
-const formSubmitSuccess = document.querySelector('.submit-success-message');
 const whatsappForm = document.querySelector(".whatsapp-form");
 const chatContainer = document.querySelector('.chat-container');
 const chatContainerInner = document.querySelector('.chat-container-inner');
@@ -109,7 +108,6 @@ messagesComputer[4].classList.add('hide');
 textEntryMessage.classList.add('hide');
 textEntryContact.classList.add('hide');
 formSubmitButton.classList.add('hide');
-formSubmitSuccess.classList.add('hide');
 
 // function to display computer messages
 const displayComputerMessage = (id) => {
