@@ -671,6 +671,7 @@ figcaption {
   overflow: hidden;
   height: 100%;
   margin-bottom: 60px;
+  padding: 20px 20px 20px 24px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -2505,8 +2506,6 @@ figcaption {
 
 .para-teaser-small {
   margin-bottom: 0px;
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 .teaser-small-more {
@@ -2515,7 +2514,6 @@ figcaption {
   display: -ms-flexbox;
   display: flex;
   padding-bottom: 0px;
-  padding-left: 20px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -2526,7 +2524,6 @@ figcaption {
   margin-top: 0px;
   margin-bottom: 12px;
   padding-right: 20px;
-  padding-left: 20px;
   font-size: 20px;
 }
 
